@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momin's Free Games Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+        #searchBar {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+            display: block;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+        .game-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .game-card a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background: #333;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .game-card a:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Free Pirated Games Site!</h1>
+    <input type="text" id="searchBar" placeholder="Search for a game..." onkeyup="searchGames()">
+
+    <div class="game-container" id="gameList">
+        <!-- Example games -->
+        <div class="game-card" data-name="Simple Clicker">
+            <img src="https://via.placeholder.com/200" alt="Game Thumbnail">
+            <h3>Simple Clicker</h3>
+            <a href="game.html">Play</a>
+        </div>
+        <div class="game-card" data-name="Runner Game">
+            <img src="https://via.placeholder.com/200" alt="Game Thumbnail">
+            <h3>Runner Game</h3>
+            <a href="runner-game.html">Play</a>
+        </div>
+        <div class="game-card" data-name="Puzzle Challenge">
+            <img src="https://via.placeholder.com/200" alt="Game Thumbnail">
+            <h3>Puzzle Challenge</h3>
+            <a href="puzzle.html">Play</a>
+        </div>
+    </div>
+
+    <script>
+        function searchGames() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let games = document.getElementsByClassName("game-card");
+
+            for (let game of games) {
+                let name = game.getAttribute("data-name").toLowerCase();
+                if (name.includes(input)) {
+                    game.style.display = "block";
+                } else {
+                    game.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
